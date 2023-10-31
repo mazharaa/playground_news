@@ -112,6 +112,12 @@ class DummyUiPage extends StatelessWidget {
                     fontSize: 17,
                   ),
                 ),
+                fieldName: 'Email',
+                hintText: 'Enter your email.',
+                prefixIcon: Icon(
+                  Icons.mail_outline_outlined,
+                  color: ColorConst.primary,
+                ),
               ),
               Padding(
                 padding: UiHelper.padding(vertical: 10),

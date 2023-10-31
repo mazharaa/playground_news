@@ -23,7 +23,7 @@ class InputValidationPage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: UiHelper.padding(horizontal: 30, top: 30),
+        padding: UiHelper.padding(horizontal: 20, top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,6 +39,7 @@ class InputValidationPage extends StatelessWidget {
                 color: ColorConst.grey,
               ),
             ),
+            UiHelper.verticalSpace(30),
             const InputTextField(
               validationText: Text(
                 '*',
@@ -47,7 +48,29 @@ class InputValidationPage extends StatelessWidget {
                   fontSize: 17,
                 ),
               ),
-            )
+              fieldName: 'Name',
+              hintText: 'Enter your name.',
+              prefixIcon: Icon(
+                Icons.person_outline,
+                color: ColorConst.primary,
+              ),
+            ),
+            UiHelper.verticalSpace(15),
+            const InputTextField(
+              validationText: Text(
+                '*',
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 17,
+                ),
+              ),
+              fieldName: 'Email',
+              hintText: 'Enter your email.',
+              prefixIcon: Icon(
+                Icons.mail_outline_outlined,
+                color: ColorConst.primary,
+              ),
+            ),
           ],
         ),
       ),
