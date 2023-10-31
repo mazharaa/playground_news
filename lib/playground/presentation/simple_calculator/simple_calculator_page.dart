@@ -44,11 +44,19 @@ class SimpleCalculatorPage extends StatelessWidget {
                 OperationButton(operation: 'Divide'),
               ],
             ),
-            UiHelper.verticalSpace(15),
+            UiHelper.verticalSpace(25),
             Text(
               'HISTORY',
               style: context.textTheme.headlineMedium?.copyWith(
                 color: ColorConst.green,
+              ),
+            ),
+            UiHelper.verticalSpace(10),
+            Text(
+              'No history found',
+              style: context.textTheme.bodySmall?.copyWith(
+                color: ColorConst.grey,
+                fontStyle: FontStyle.italic,
               ),
             ),
           ],
