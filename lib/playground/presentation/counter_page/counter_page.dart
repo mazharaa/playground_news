@@ -22,19 +22,24 @@ class CounterPage extends StatelessWidget {
           style: context.textTheme.displayLarge,
         ),
       ),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-          UiHelper.verticalSpace(10),
-          FloatingActionButton(
-            onPressed: () {},
-            child: const Icon(Icons.remove),
-          ),
-        ],
+      floatingActionButton: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: () {},
+              heroTag: 'btn1',
+              child: const Icon(Icons.add),
+            ),
+            UiHelper.verticalSpace(10),
+            FloatingActionButton(
+              onPressed: () {},
+              heroTag: 'btn2',
+              child: const Icon(Icons.remove),
+            ),
+          ],
+        ),
       ),
       body: Center(
         child: Text(
