@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
+import 'package:playground_news/playground/application/counter_cubit/counter_cubit.dart';
 
 @RoutePage()
 class CounterPage extends StatelessWidget {
@@ -9,6 +11,8 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CounterCubit counterCubit = context.read<CounterCubit>();
+
     return Scaffold(
       appBar: AppBar(
         leading: GestureDetector(
@@ -28,13 +32,13 @@ class CounterPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () => counterCubit.increment(),
               heroTag: 'btn1',
               child: const Icon(Icons.add),
             ),
             UiHelper.verticalSpace(10),
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () => counterCubit.decrement(),
               heroTag: 'btn2',
               child: const Icon(Icons.remove),
             ),
@@ -42,9 +46,14 @@ class CounterPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Text(
-          '0',
-          style: context.textTheme.displayLarge,
+        child: BlocBuilder<CounterCubit, int>(
+          bloc: counterCubit,
+          builder: (context, state) {
+            return Text(
+              '$state',
+              style: context.textTheme.displayLarge,
+            );
+          },
         ),
       ),
     );
