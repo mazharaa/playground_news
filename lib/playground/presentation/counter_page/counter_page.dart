@@ -11,49 +11,52 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CounterCubit counterCubit = context.read<CounterCubit>();
+    CounterCubit counterCubit = CounterCubit();
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () => context.router.pop(),
-          child: const Icon(
-            Icons.arrow_back_ios,
+    return BlocProvider(
+      create: (context) => counterCubit,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: GestureDetector(
+            onTap: () => context.router.pop(),
+            child: const Icon(
+              Icons.arrow_back_ios,
+            ),
+          ),
+          title: Text(
+            'Counter App',
+            style: context.textTheme.displayLarge,
           ),
         ),
-        title: Text(
-          'Counter App',
-          style: context.textTheme.displayLarge,
+        floatingActionButton: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              FloatingActionButton(
+                onPressed: () => counterCubit.increment(),
+                heroTag: 'btn1',
+                child: const Icon(Icons.add),
+              ),
+              UiHelper.verticalSpace(10),
+              FloatingActionButton(
+                onPressed: () => counterCubit.decrement(),
+                heroTag: 'btn2',
+                child: const Icon(Icons.remove),
+              ),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            FloatingActionButton(
-              onPressed: () => counterCubit.increment(),
-              heroTag: 'btn1',
-              child: const Icon(Icons.add),
-            ),
-            UiHelper.verticalSpace(10),
-            FloatingActionButton(
-              onPressed: () => counterCubit.decrement(),
-              heroTag: 'btn2',
-              child: const Icon(Icons.remove),
-            ),
-          ],
-        ),
-      ),
-      body: Center(
-        child: BlocBuilder<CounterCubit, int>(
-          bloc: counterCubit,
-          builder: (context, state) {
-            return Text(
-              '$state',
-              style: context.textTheme.displayLarge,
-            );
-          },
+        body: Center(
+          child: BlocBuilder<CounterCubit, int>(
+            bloc: counterCubit,
+            builder: (context, state) {
+              return Text(
+                '$state',
+                style: context.textTheme.displayLarge,
+              );
+            },
+          ),
         ),
       ),
     );

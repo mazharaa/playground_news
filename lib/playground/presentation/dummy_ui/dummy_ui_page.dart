@@ -105,13 +105,6 @@ class DummyUiPage extends StatelessWidget {
                 ),
               ),
               const InputTextField(
-                validationText: Text(
-                  '*',
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 17,
-                  ),
-                ),
                 fieldName: 'Email',
                 hintText: 'Enter your email.',
                 prefixIcon: Icon(
