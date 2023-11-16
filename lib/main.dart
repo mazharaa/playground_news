@@ -1,28 +1,54 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:playground_news/core/commons/app_theme.dart';
+import 'package:playground_news/core/injection/injection.dart';
+import 'package:playground_news/core/main_app_cubit/main_app_cubit.dart';
 import 'package:playground_news/core/routes/app_router.dart';
+import 'package:playground_news/core/utils/simple_bloc_observer.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: kIsWeb
+        ? HydratedStorage.webStorageDirectory
+        : await getTemporaryDirectory(),
+  );
+  Bloc.observer = SimpleBlocObserver();
+  configuredInjection();
+  runApp(PlaygroundNews());
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
+class PlaygroundNews extends StatelessWidget {
+  PlaygroundNews({super.key});
 
-  final _appRouter = AppRouter();
+  // final _appRouter = AppRouter();
+  final router = getIt<AppRouter>();
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(360, 690),
-      builder: () {
-        return MaterialApp.router(
-          title: 'Play Ground and Pixel News App',
-          theme: AppTheme.theme,
-          routerConfig: _appRouter.config(),
-        );
-      },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => MainAppCubit(),
+        )
+      ],
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        builder: () {
+          return MaterialApp.router(
+            title: 'Play Ground and Pixel News App',
+            theme: AppTheme.theme,
+            darkTheme: AppTheme.theme,
+            routerDelegate: AutoRouterDelegate(router),
+            routeInformationParser: router.defaultRouteParser(),
+          );
+        },
+      ),
     );
   }
 }

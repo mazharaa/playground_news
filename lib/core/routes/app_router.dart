@@ -6,6 +6,8 @@ import 'package:playground_news/playground/presentation/dummy_ui/dummy_ui_second
 import 'package:playground_news/playground/presentation/input_validation/input_validation_page.dart';
 import 'package:playground_news/playground/presentation/simple_calculator/simple_calculator_page.dart';
 import 'package:playground_news/presentation/main_page.dart';
+import 'package:playground_news/presentation/splash/pixel_news_splash_page.dart';
+import 'package:playground_news/presentation/splash/playground_splash_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -20,5 +22,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: CounterRoute.page),
         AutoRoute(page: SimpleCalculatorRoute.page),
         AutoRoute(page: InputValidationRoute.page),
+        AutoRoute(page: PixelNewsSplashRoute.page),
+        AutoRoute(page: PlaygroundSplashRoute.page),
       ];
 }
