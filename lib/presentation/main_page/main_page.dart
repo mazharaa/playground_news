@@ -29,6 +29,11 @@ class MainPage extends StatelessWidget {
                   [const PlaygroundSplashRoute()],
                 );
               },
+              helloWorld: () {
+                AutoRouter.of(context).replaceAll(
+                  [const HelloWorldSplashRoute()],
+                );
+              },
             );
       },
     );
@@ -44,6 +49,11 @@ class MainPage extends StatelessWidget {
           playGround: () {
             AutoRouter.of(context).replaceAll(
               [const PlaygroundSplashRoute()],
+            );
+          },
+          helloWorld: () {
+            AutoRouter.of(context).replaceAll(
+              [const HelloWorldSplashRoute()],
             );
           },
         );

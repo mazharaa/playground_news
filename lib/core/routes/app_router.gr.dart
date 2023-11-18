@@ -39,6 +39,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const DummyUiSecondPage(),
       );
     },
+    HelloWorldRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HelloWorldPage(),
+      );
+    },
+    HelloWorldSplashRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HelloWorldSplashPage(),
+      );
+    },
     InputValidationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -124,6 +136,34 @@ class DummyUiSecondRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'DummyUiSecondRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HelloWorldPage]
+class HelloWorldRoute extends PageRouteInfo<void> {
+  const HelloWorldRoute({List<PageRouteInfo>? children})
+      : super(
+          HelloWorldRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HelloWorldRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HelloWorldSplashPage]
+class HelloWorldSplashRoute extends PageRouteInfo<void> {
+  const HelloWorldSplashRoute({List<PageRouteInfo>? children})
+      : super(
+          HelloWorldSplashRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HelloWorldSplashRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
