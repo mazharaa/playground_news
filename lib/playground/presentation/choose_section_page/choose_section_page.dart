@@ -32,66 +32,68 @@ class ChooseSectionPage extends StatelessWidget {
       },
       child: Scaffold(
         body: SafeArea(
-          child: Padding(
-            padding: UiHelper.padding(
-              top: 30,
-              horizontal: 15,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Choose Section',
-                  style: context.textTheme.displayLarge,
-                ),
-                UiHelper.verticalSpace(20.sp),
-                ActionText(
-                  title: 'Dummy UI',
-                  subTitle:
-                      'Pracitce flutter UI and get familiar with UI Widgets',
-                  onTap: () => context.router.push(const DummyUiRoute()),
-                ),
-                ActionText(
-                  title: 'Counter App',
-                  subTitle:
-                      'Increment or decrement an integer based on user input',
-                  onTap: () => context.router.push(const CounterRoute()),
-                ),
-                ActionText(
-                  title: 'Simple Calculator',
-                  subTitle:
-                      'Creating calculator app that consists add, divide, substract, multiply function',
-                  onTap: () =>
-                      context.router.push(const SimpleCalculatorRoute()),
-                ),
-                ActionText(
-                  title: 'Input Validation',
-                  subTitle: 'Play around with email input & password input',
-                  onTap: () =>
-                      context.router.push(const InputValidationRoute()),
-                ),
-                ActionText(
-                  title: 'Switch App',
-                  subTitle:
-                      'Goes to main home page and choose between Playground and Pixels',
-                  onTap: () {
-                    showModalBottomSheet(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return ListView(
-                          padding: UiHelper.padding(top: 25, horizontal: 25),
-                          children: const [
-                            ChooseAppWidget(showresetButton: true)
-                          ],
-                        );
-                      },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: UiHelper.borderRadiusCircular(all: 15),
-                      ),
-                    );
-                  },
-                ),
-              ],
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: UiHelper.padding(
+                top: 30,
+                horizontal: 15,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Choose Section',
+                    style: context.textTheme.displayLarge,
+                  ),
+                  UiHelper.verticalSpace(20.sp),
+                  ActionText(
+                    title: 'Dummy UI',
+                    subTitle:
+                        'Pracitce flutter UI and get familiar with UI Widgets',
+                    onTap: () => context.router.push(const DummyUiRoute()),
+                  ),
+                  ActionText(
+                    title: 'Counter App',
+                    subTitle:
+                        'Increment or decrement an integer based on user input',
+                    onTap: () => context.router.push(const CounterRoute()),
+                  ),
+                  ActionText(
+                    title: 'Simple Calculator',
+                    subTitle:
+                        'Creating calculator app that consists add, divide, substract, multiply function',
+                    onTap: () =>
+                        context.router.push(const SimpleCalculatorRoute()),
+                  ),
+                  ActionText(
+                    title: 'Input Validation',
+                    subTitle: 'Play around with email input & password input',
+                    onTap: () =>
+                        context.router.push(const InputValidationRoute()),
+                  ),
+                  ActionText(
+                    title: 'Switch App',
+                    subTitle:
+                        'Goes to main home page and choose between Playground and Pixels',
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return ListView(
+                            padding: UiHelper.padding(top: 25, horizontal: 25),
+                            children: const [
+                              ChooseAppWidget(showresetButton: true)
+                            ],
+                          );
+                        },
+                        shape: RoundedRectangleBorder(
+                          borderRadius: UiHelper.borderRadiusCircular(all: 15),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),

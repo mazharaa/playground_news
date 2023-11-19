@@ -98,7 +98,7 @@ class AppTheme {
       fontWeight: FontWeight.bold,
     ),
     bodyLarge: GoogleFonts.poppins().copyWith(fontSize: 14.sp),
-    bodyMedium: GoogleFonts.poppins().copyWith(fontSize: 16.sp),
+    bodyMedium: GoogleFonts.poppins().copyWith(fontSize: 13.sp),
     titleMedium: GoogleFonts.poppins(fontSize: 18.sp),
     titleSmall: GoogleFonts.poppins(fontSize: 16.sp),
     bodySmall: GoogleFonts.poppins(fontSize: 12.sp),
