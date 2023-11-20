@@ -28,6 +28,11 @@ class SimpleCalculatorState with _$SimpleCalculatorState {
   String? get showErrorMsg {
     if (!showError) return null;
 
+    if (model.emptyLeftErrorMessages == null &&
+        model.emptyRightErrorMessages == null) {
+      return model.dividedByZeorErrorMessage;
+    }
+
     if (model.emptyLeftErrorMessages == null) {
       return model.emptyRightErrorMessages;
     }

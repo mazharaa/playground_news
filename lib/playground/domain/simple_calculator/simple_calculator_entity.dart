@@ -31,7 +31,8 @@ class SimpleCalculatorEntity with _$SimpleCalculatorEntity {
 
   Option<FormFailure> get failureOption {
     return FormValidator.emptyValidator(leftForm)
-        .andThen(() => FormValidator.emptyValidator(rightForm))
+        .andThen(() => FormValidator.emptyValidator(rightForm)
+            .andThen(() => FormValidator.dividedByZero(rightForm)))
         .fold(
           (failure) => some(failure),
           (_) => none(),
@@ -53,6 +54,16 @@ class SimpleCalculatorEntity with _$SimpleCalculatorEntity {
       (failure) => failure.maybeWhen(
         orElse: () => null,
         empty: () => 'Right form cannot be empty',
+      ),
+      (data) => null,
+    );
+  }
+
+  String? get dividedByZeorErrorMessage {
+    return FormValidator.dividedByZero(rightForm).fold(
+      (failure) => failure.maybeWhen(
+        orElse: () => null,
+        invalidDivider: () => 'Divider cannot be zero (0)',
       ),
       (data) => null,
     );

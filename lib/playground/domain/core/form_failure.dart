@@ -7,4 +7,5 @@ class FormFailure with _$FormFailure {
   const factory FormFailure.empty() = _FormFailureEmpty;
   const factory FormFailure.tooLong() = _FormFailureTooLong;
   const factory FormFailure.invalidEmailAddress() = _InvalidEmailAddress;
+  const factory FormFailure.invalidDivider() = _InvalidDivider;
 }

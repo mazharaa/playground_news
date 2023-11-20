@@ -26,4 +26,11 @@ class FormValidator {
     }
     return right(unit);
   }
+
+  static Either<FormFailure, Unit> dividedByZero(String val) {
+    if (val == '0') {
+      return left(const FormFailure.invalidDivider());
+    }
+    return right(unit);
+  }
 }
