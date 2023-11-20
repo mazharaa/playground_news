@@ -179,6 +179,7 @@ mixin _$SimpleCalculatorType {
     required TResult Function() substract,
     required TResult Function() multiply,
     required TResult Function() divide,
+    required TResult Function() power,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -188,6 +189,7 @@ mixin _$SimpleCalculatorType {
     TResult? Function()? substract,
     TResult? Function()? multiply,
     TResult? Function()? divide,
+    TResult? Function()? power,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -197,6 +199,7 @@ mixin _$SimpleCalculatorType {
     TResult Function()? substract,
     TResult Function()? multiply,
     TResult Function()? divide,
+    TResult Function()? power,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -207,6 +210,7 @@ mixin _$SimpleCalculatorType {
     required TResult Function(_Substract value) substract,
     required TResult Function(_Multiply value) multiply,
     required TResult Function(_Divide value) divide,
+    required TResult Function(_Power value) power,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -216,6 +220,7 @@ mixin _$SimpleCalculatorType {
     TResult? Function(_Substract value)? substract,
     TResult? Function(_Multiply value)? multiply,
     TResult? Function(_Divide value)? divide,
+    TResult? Function(_Power value)? power,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -225,6 +230,7 @@ mixin _$SimpleCalculatorType {
     TResult Function(_Substract value)? substract,
     TResult Function(_Multiply value)? multiply,
     TResult Function(_Divide value)? divide,
+    TResult Function(_Power value)? power,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -291,6 +297,7 @@ class _$NoneImpl implements _None {
     required TResult Function() substract,
     required TResult Function() multiply,
     required TResult Function() divide,
+    required TResult Function() power,
   }) {
     return none();
   }
@@ -303,6 +310,7 @@ class _$NoneImpl implements _None {
     TResult? Function()? substract,
     TResult? Function()? multiply,
     TResult? Function()? divide,
+    TResult? Function()? power,
   }) {
     return none?.call();
   }
@@ -315,6 +323,7 @@ class _$NoneImpl implements _None {
     TResult Function()? substract,
     TResult Function()? multiply,
     TResult Function()? divide,
+    TResult Function()? power,
     required TResult orElse(),
   }) {
     if (none != null) {
@@ -331,6 +340,7 @@ class _$NoneImpl implements _None {
     required TResult Function(_Substract value) substract,
     required TResult Function(_Multiply value) multiply,
     required TResult Function(_Divide value) divide,
+    required TResult Function(_Power value) power,
   }) {
     return none(this);
   }
@@ -343,6 +353,7 @@ class _$NoneImpl implements _None {
     TResult? Function(_Substract value)? substract,
     TResult? Function(_Multiply value)? multiply,
     TResult? Function(_Divide value)? divide,
+    TResult? Function(_Power value)? power,
   }) {
     return none?.call(this);
   }
@@ -355,6 +366,7 @@ class _$NoneImpl implements _None {
     TResult Function(_Substract value)? substract,
     TResult Function(_Multiply value)? multiply,
     TResult Function(_Divide value)? divide,
+    TResult Function(_Power value)? power,
     required TResult orElse(),
   }) {
     if (none != null) {
@@ -409,6 +421,7 @@ class _$AddImpl implements _Add {
     required TResult Function() substract,
     required TResult Function() multiply,
     required TResult Function() divide,
+    required TResult Function() power,
   }) {
     return add();
   }
@@ -421,6 +434,7 @@ class _$AddImpl implements _Add {
     TResult? Function()? substract,
     TResult? Function()? multiply,
     TResult? Function()? divide,
+    TResult? Function()? power,
   }) {
     return add?.call();
   }
@@ -433,6 +447,7 @@ class _$AddImpl implements _Add {
     TResult Function()? substract,
     TResult Function()? multiply,
     TResult Function()? divide,
+    TResult Function()? power,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -449,6 +464,7 @@ class _$AddImpl implements _Add {
     required TResult Function(_Substract value) substract,
     required TResult Function(_Multiply value) multiply,
     required TResult Function(_Divide value) divide,
+    required TResult Function(_Power value) power,
   }) {
     return add(this);
   }
@@ -461,6 +477,7 @@ class _$AddImpl implements _Add {
     TResult? Function(_Substract value)? substract,
     TResult? Function(_Multiply value)? multiply,
     TResult? Function(_Divide value)? divide,
+    TResult? Function(_Power value)? power,
   }) {
     return add?.call(this);
   }
@@ -473,6 +490,7 @@ class _$AddImpl implements _Add {
     TResult Function(_Substract value)? substract,
     TResult Function(_Multiply value)? multiply,
     TResult Function(_Divide value)? divide,
+    TResult Function(_Power value)? power,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -529,6 +547,7 @@ class _$SubstractImpl implements _Substract {
     required TResult Function() substract,
     required TResult Function() multiply,
     required TResult Function() divide,
+    required TResult Function() power,
   }) {
     return substract();
   }
@@ -541,6 +560,7 @@ class _$SubstractImpl implements _Substract {
     TResult? Function()? substract,
     TResult? Function()? multiply,
     TResult? Function()? divide,
+    TResult? Function()? power,
   }) {
     return substract?.call();
   }
@@ -553,6 +573,7 @@ class _$SubstractImpl implements _Substract {
     TResult Function()? substract,
     TResult Function()? multiply,
     TResult Function()? divide,
+    TResult Function()? power,
     required TResult orElse(),
   }) {
     if (substract != null) {
@@ -569,6 +590,7 @@ class _$SubstractImpl implements _Substract {
     required TResult Function(_Substract value) substract,
     required TResult Function(_Multiply value) multiply,
     required TResult Function(_Divide value) divide,
+    required TResult Function(_Power value) power,
   }) {
     return substract(this);
   }
@@ -581,6 +603,7 @@ class _$SubstractImpl implements _Substract {
     TResult? Function(_Substract value)? substract,
     TResult? Function(_Multiply value)? multiply,
     TResult? Function(_Divide value)? divide,
+    TResult? Function(_Power value)? power,
   }) {
     return substract?.call(this);
   }
@@ -593,6 +616,7 @@ class _$SubstractImpl implements _Substract {
     TResult Function(_Substract value)? substract,
     TResult Function(_Multiply value)? multiply,
     TResult Function(_Divide value)? divide,
+    TResult Function(_Power value)? power,
     required TResult orElse(),
   }) {
     if (substract != null) {
@@ -649,6 +673,7 @@ class _$MultiplyImpl implements _Multiply {
     required TResult Function() substract,
     required TResult Function() multiply,
     required TResult Function() divide,
+    required TResult Function() power,
   }) {
     return multiply();
   }
@@ -661,6 +686,7 @@ class _$MultiplyImpl implements _Multiply {
     TResult? Function()? substract,
     TResult? Function()? multiply,
     TResult? Function()? divide,
+    TResult? Function()? power,
   }) {
     return multiply?.call();
   }
@@ -673,6 +699,7 @@ class _$MultiplyImpl implements _Multiply {
     TResult Function()? substract,
     TResult Function()? multiply,
     TResult Function()? divide,
+    TResult Function()? power,
     required TResult orElse(),
   }) {
     if (multiply != null) {
@@ -689,6 +716,7 @@ class _$MultiplyImpl implements _Multiply {
     required TResult Function(_Substract value) substract,
     required TResult Function(_Multiply value) multiply,
     required TResult Function(_Divide value) divide,
+    required TResult Function(_Power value) power,
   }) {
     return multiply(this);
   }
@@ -701,6 +729,7 @@ class _$MultiplyImpl implements _Multiply {
     TResult? Function(_Substract value)? substract,
     TResult? Function(_Multiply value)? multiply,
     TResult? Function(_Divide value)? divide,
+    TResult? Function(_Power value)? power,
   }) {
     return multiply?.call(this);
   }
@@ -713,6 +742,7 @@ class _$MultiplyImpl implements _Multiply {
     TResult Function(_Substract value)? substract,
     TResult Function(_Multiply value)? multiply,
     TResult Function(_Divide value)? divide,
+    TResult Function(_Power value)? power,
     required TResult orElse(),
   }) {
     if (multiply != null) {
@@ -769,6 +799,7 @@ class _$DivideImpl implements _Divide {
     required TResult Function() substract,
     required TResult Function() multiply,
     required TResult Function() divide,
+    required TResult Function() power,
   }) {
     return divide();
   }
@@ -781,6 +812,7 @@ class _$DivideImpl implements _Divide {
     TResult? Function()? substract,
     TResult? Function()? multiply,
     TResult? Function()? divide,
+    TResult? Function()? power,
   }) {
     return divide?.call();
   }
@@ -793,6 +825,7 @@ class _$DivideImpl implements _Divide {
     TResult Function()? substract,
     TResult Function()? multiply,
     TResult Function()? divide,
+    TResult Function()? power,
     required TResult orElse(),
   }) {
     if (divide != null) {
@@ -809,6 +842,7 @@ class _$DivideImpl implements _Divide {
     required TResult Function(_Substract value) substract,
     required TResult Function(_Multiply value) multiply,
     required TResult Function(_Divide value) divide,
+    required TResult Function(_Power value) power,
   }) {
     return divide(this);
   }
@@ -821,6 +855,7 @@ class _$DivideImpl implements _Divide {
     TResult? Function(_Substract value)? substract,
     TResult? Function(_Multiply value)? multiply,
     TResult? Function(_Divide value)? divide,
+    TResult? Function(_Power value)? power,
   }) {
     return divide?.call(this);
   }
@@ -833,6 +868,7 @@ class _$DivideImpl implements _Divide {
     TResult Function(_Substract value)? substract,
     TResult Function(_Multiply value)? multiply,
     TResult Function(_Divide value)? divide,
+    TResult Function(_Power value)? power,
     required TResult orElse(),
   }) {
     if (divide != null) {
@@ -844,4 +880,130 @@ class _$DivideImpl implements _Divide {
 
 abstract class _Divide implements SimpleCalculatorType {
   const factory _Divide() = _$DivideImpl;
+}
+
+/// @nodoc
+abstract class _$$PowerImplCopyWith<$Res> {
+  factory _$$PowerImplCopyWith(
+          _$PowerImpl value, $Res Function(_$PowerImpl) then) =
+      __$$PowerImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PowerImplCopyWithImpl<$Res>
+    extends _$SimpleCalculatorTypeCopyWithImpl<$Res, _$PowerImpl>
+    implements _$$PowerImplCopyWith<$Res> {
+  __$$PowerImplCopyWithImpl(
+      _$PowerImpl _value, $Res Function(_$PowerImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PowerImpl implements _Power {
+  const _$PowerImpl();
+
+  @override
+  String toString() {
+    return 'SimpleCalculatorType.power()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PowerImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() none,
+    required TResult Function() add,
+    required TResult Function() substract,
+    required TResult Function() multiply,
+    required TResult Function() divide,
+    required TResult Function() power,
+  }) {
+    return power();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? none,
+    TResult? Function()? add,
+    TResult? Function()? substract,
+    TResult? Function()? multiply,
+    TResult? Function()? divide,
+    TResult? Function()? power,
+  }) {
+    return power?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? add,
+    TResult Function()? substract,
+    TResult Function()? multiply,
+    TResult Function()? divide,
+    TResult Function()? power,
+    required TResult orElse(),
+  }) {
+    if (power != null) {
+      return power();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_None value) none,
+    required TResult Function(_Add value) add,
+    required TResult Function(_Substract value) substract,
+    required TResult Function(_Multiply value) multiply,
+    required TResult Function(_Divide value) divide,
+    required TResult Function(_Power value) power,
+  }) {
+    return power(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_None value)? none,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Substract value)? substract,
+    TResult? Function(_Multiply value)? multiply,
+    TResult? Function(_Divide value)? divide,
+    TResult? Function(_Power value)? power,
+  }) {
+    return power?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_None value)? none,
+    TResult Function(_Add value)? add,
+    TResult Function(_Substract value)? substract,
+    TResult Function(_Multiply value)? multiply,
+    TResult Function(_Divide value)? divide,
+    TResult Function(_Power value)? power,
+    required TResult orElse(),
+  }) {
+    if (power != null) {
+      return power(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Power implements SimpleCalculatorType {
+  const factory _Power() = _$PowerImpl;
 }

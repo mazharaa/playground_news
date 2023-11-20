@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -73,6 +75,16 @@ class SimpleCalculatorCubit extends Cubit<SimpleCalculatorState> {
       final value = double.parse(leftController.text) /
           double.parse(rightController.text);
       saveToHistories(value);
+    } else {
+      emit(state.unmodified.copyWith(showError: true));
+    }
+  }
+
+  void powerValue() {
+    if (state.model.failureOption.isNone()) {
+      final value = pow(double.parse(leftController.text),
+          double.parse(rightController.text));
+      saveToHistories(value.toDouble());
     } else {
       emit(state.unmodified.copyWith(showError: true));
     }

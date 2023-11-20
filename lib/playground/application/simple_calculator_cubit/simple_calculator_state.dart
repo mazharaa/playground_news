@@ -42,6 +42,7 @@ class SimpleCalculatorState with _$SimpleCalculatorState {
       substract: () => '-',
       multiply: () => 'X',
       divide: () => '/',
+      power: () => '^',
     );
   }
 
@@ -59,4 +60,5 @@ class SimpleCalculatorType with _$SimpleCalculatorType {
   const factory SimpleCalculatorType.substract() = _Substract;
   const factory SimpleCalculatorType.multiply() = _Multiply;
   const factory SimpleCalculatorType.divide() = _Divide;
+  const factory SimpleCalculatorType.power() = _Power;
 }

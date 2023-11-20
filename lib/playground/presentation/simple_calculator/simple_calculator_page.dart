@@ -48,6 +48,9 @@ class SimpleCalculatorPage extends StatelessWidget {
                       divide: () {
                         context.read<SimpleCalculatorCubit>().divideValue();
                       },
+                      power: () {
+                        context.read<SimpleCalculatorCubit>().powerValue();
+                      },
                     );
                   },
                   child: const Text('CALCULATE'),
@@ -104,6 +107,16 @@ class SimpleCalculatorPage extends StatelessWidget {
                           onPressed: () {
                             context.read<SimpleCalculatorCubit>().chooseType(
                                 const SimpleCalculatorType.divide());
+                          },
+                        ),
+                        OperationButton(
+                          operation: 'Power',
+                          isChoosen: state
+                              .choosenType(const SimpleCalculatorType.power()),
+                          onPressed: () {
+                            context
+                                .read<SimpleCalculatorCubit>()
+                                .chooseType(const SimpleCalculatorType.power());
                           },
                         ),
                       ],
