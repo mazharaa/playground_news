@@ -59,7 +59,7 @@ class SimpleCalculatorEntity with _$SimpleCalculatorEntity {
     );
   }
 
-  String? get dividedByZeorErrorMessage {
+  String? get dividedByZeroErrorMessage {
     return FormValidator.dividedByZero(rightForm).fold(
       (failure) => failure.maybeWhen(
         orElse: () => null,
@@ -102,8 +102,17 @@ class SimpleCalculatorEntity with _$SimpleCalculatorEntity {
       type: type,
     );
 
-    final newHistories = [...histories, calculationHistory];
+    if (histories.any((element) =>
+        element.leftValue == leftForm &&
+        element.rightValue == rightForm &&
+        element.type == type)) {
+      return histories;
+    } else {
+      return [...histories, calculationHistory];
+    }
 
-    return newHistories;
+    // final newHistories = [...histories, calculationHistory];
+
+    // return newHistories;
   }
 }

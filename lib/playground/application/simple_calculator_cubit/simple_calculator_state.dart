@@ -30,7 +30,7 @@ class SimpleCalculatorState with _$SimpleCalculatorState {
 
     if (model.emptyLeftErrorMessages == null &&
         model.emptyRightErrorMessages == null) {
-      return model.dividedByZeorErrorMessage;
+      return model.dividedByZeroErrorMessage;
     }
 
     if (model.emptyLeftErrorMessages == null) {
