@@ -110,9 +110,5 @@ class SimpleCalculatorEntity with _$SimpleCalculatorEntity {
     } else {
       return [...histories, calculationHistory];
     }
-
-    // final newHistories = [...histories, calculationHistory];
-
-    // return newHistories;
   }
 }
