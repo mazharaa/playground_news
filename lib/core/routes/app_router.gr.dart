@@ -63,6 +63,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MainPage(),
       );
     },
+    PixelNewsMainRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PixelNewsMainPage(),
+      );
+    },
     PixelNewsSplashRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -192,6 +198,20 @@ class MainRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MainRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PixelNewsMainPage]
+class PixelNewsMainRoute extends PageRouteInfo<void> {
+  const PixelNewsMainRoute({List<PageRouteInfo>? children})
+      : super(
+          PixelNewsMainRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PixelNewsMainRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

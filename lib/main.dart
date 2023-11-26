@@ -5,11 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:playground_news/application/main_app_cubit/main_app_cubit.dart';
 import 'package:playground_news/core/commons/app_theme.dart';
 import 'package:playground_news/core/injection/injection.dart';
-import 'package:playground_news/core/main_app_cubit/main_app_cubit.dart';
 import 'package:playground_news/core/routes/app_router.dart';
 import 'package:playground_news/core/utils/simple_bloc_observer.dart';
+import 'package:playground_news/pixel_news/application/nav_bar_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +36,9 @@ class PlaygroundNews extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => MainAppCubit(),
+        ),
+        BlocProvider(
+          create: (context) => NavBarCubit(),
         )
       ],
       child: ScreenUtilInit(
