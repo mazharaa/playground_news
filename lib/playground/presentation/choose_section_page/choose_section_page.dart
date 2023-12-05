@@ -6,7 +6,7 @@ import 'package:playground_news/application/main_app_cubit/main_app_cubit.dart';
 import 'package:playground_news/core/routes/app_router.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
-import 'package:playground_news/playground/presentation/choose_section_page/widgets/action_text.dart';
+import 'package:playground_news/presentation/commons/widgets/action_text.dart';
 import 'package:playground_news/presentation/widget/choose_app_widget.dart';
 
 @RoutePage()

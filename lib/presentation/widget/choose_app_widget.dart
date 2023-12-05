@@ -24,36 +24,54 @@ class ChooseAppWidget extends StatelessWidget {
       children: [
         Text('Choose your app', style: context.textTheme.displaySmall),
         UiHelper.verticalSpace(15),
-        ChooseAppButton(
-          onTap: () {
-            context
-                .read<MainAppCubit>()
-                .changeApp(const MainAppType.pixelNews());
-          },
-          child: SvgPicture.asset(AssetsPath.pixelNewsLogo),
-        ),
-        UiHelper.verticalSpace(10.sp),
-        ChooseAppButton(
-          onTap: () {
-            context
-                .read<MainAppCubit>()
-                .changeApp(const MainAppType.playGround());
-          },
-          child: Image.asset(AssetsPath.playgroundLogo),
-        ),
-        UiHelper.verticalSpace(10.sp),
-        ChooseAppButton(
-          onTap: () {
-            context
-                .read<MainAppCubit>()
-                .changeApp(const MainAppType.helloWorld());
-          },
-          child: Text(
-            'Hello World',
-            style: context.textTheme.displayLarge,
+        if (context.read<MainAppCubit>().state.type !=
+            const MainAppType.pixelNews())
+          Column(
+            children: [
+              ChooseAppButton(
+                onTap: () {
+                  context
+                      .read<MainAppCubit>()
+                      .changeApp(const MainAppType.pixelNews());
+                },
+                child: SvgPicture.asset(AssetsPath.pixelNewsLogo),
+              ),
+              UiHelper.verticalSpace(10.sp),
+            ],
           ),
-        ),
-        UiHelper.verticalSpace(10.sp),
+        if (context.read<MainAppCubit>().state.type !=
+            const MainAppType.playGround())
+          Column(
+            children: [
+              ChooseAppButton(
+                onTap: () {
+                  context
+                      .read<MainAppCubit>()
+                      .changeApp(const MainAppType.playGround());
+                },
+                child: Image.asset(AssetsPath.playgroundLogo),
+              ),
+              UiHelper.verticalSpace(10.sp),
+            ],
+          ),
+        if (context.read<MainAppCubit>().state.type !=
+            const MainAppType.helloWorld())
+          Column(
+            children: [
+              ChooseAppButton(
+                onTap: () {
+                  context
+                      .read<MainAppCubit>()
+                      .changeApp(const MainAppType.helloWorld());
+                },
+                child: Text(
+                  'Hello World',
+                  style: context.textTheme.displayLarge,
+                ),
+              ),
+              UiHelper.verticalSpace(10.sp),
+            ],
+          ),
         if (showresetButton)
           ChooseAppButton(
             onTap: () {

@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:playground_news/playground/domain/core/form_failure.dart';
-import 'package:playground_news/playground/domain/core/form_validator.dart';
+import 'package:playground_news/domain/core/form_failure.dart';
+import 'package:playground_news/domain/core/form_validator.dart';
 
 part 'input_validation_entity.freezed.dart';
 

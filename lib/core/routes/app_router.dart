@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:playground_news/hello_world/presentation/splash_page/hello_world_splash_page.dart';
 import 'package:playground_news/pixel_news/presentation/pixel_news_main_page.dart';
+import 'package:playground_news/pixel_news/presentation/screen/most_popular_article_page.dart';
 import 'package:playground_news/pixel_news/presentation/splash_page/pixel_news_splash_page.dart';
 import 'package:playground_news/playground/presentation/choose_section_page/choose_section_page.dart';
 import 'package:playground_news/playground/presentation/counter_page/counter_page.dart';
@@ -29,6 +30,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: HelloWorldSplashRoute.page),
         AutoRoute(page: HelloWorldRoute.page),
         AutoRoute(page: PixelNewsSplashRoute.page),
-        AutoRoute(page: PixelNewsMainRoute.page)
+        AutoRoute(page: PixelNewsMainRoute.page),
+        AutoRoute(page: MostPopularArticleRoute.page)
       ];
 }

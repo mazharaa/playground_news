@@ -4,7 +4,7 @@ import 'package:playground_news/core/commons/color_const.dart';
 import 'package:playground_news/core/routes/app_router.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
-import 'package:playground_news/playground/presentation/choose_section_page/widgets/action_text.dart';
+import 'package:playground_news/presentation/commons/widgets/action_text.dart';
 import 'package:playground_news/presentation/commons/widgets/input_text_field.dart';
 import 'package:playground_news/presentation/commons/widgets/ui_card.dart';
 import 'package:playground_news/playground/presentation/dummy_ui/widgets/ui_square_card.dart';

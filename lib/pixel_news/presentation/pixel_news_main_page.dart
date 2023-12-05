@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:playground_news/core/commons/assets_path.dart';
 import 'package:playground_news/core/commons/color_const.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
-import 'package:playground_news/pixel_news/application/nav_bar_cubit.dart';
+import 'package:playground_news/pixel_news/application/nav_bar/nav_bar_cubit.dart';
 import 'package:playground_news/pixel_news/presentation/screen/favorite_screen.dart';
 import 'package:playground_news/pixel_news/presentation/screen/home_screen.dart';
 import 'package:playground_news/pixel_news/presentation/screen/search_screen.dart';
@@ -78,7 +78,7 @@ class PixelNewsMainPage extends StatelessWidget {
           ),
           body: SafeArea(
             child: Padding(
-              padding: UiHelper.padding(horizontal: 20, top: 20),
+              padding: UiHelper.padding(horizontal: 15),
               child: IndexedStack(
                 index: currentIndex,
                 children: const [

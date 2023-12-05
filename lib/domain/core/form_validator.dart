@@ -1,5 +1,5 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:playground_news/playground/domain/core/form_failure.dart';
+import 'package:playground_news/domain/core/form_failure.dart';
 
 class FormValidator {
   FormValidator._();

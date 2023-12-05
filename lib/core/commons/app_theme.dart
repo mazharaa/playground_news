@@ -104,7 +104,7 @@ class AppTheme {
     bodySmall: GoogleFonts.poppins(fontSize: 12.sp),
     labelLarge:
         GoogleFonts.poppins(fontSize: 14.sp, fontWeight: FontWeight.bold),
-    labelMedium: GoogleFonts.poppins(fontSize: 12),
+    labelMedium: GoogleFonts.poppins(fontSize: 11.sp),
     labelSmall: GoogleFonts.poppins(
       fontSize: 10.sp,
       letterSpacing: 0.0,

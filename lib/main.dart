@@ -10,7 +10,10 @@ import 'package:playground_news/core/commons/app_theme.dart';
 import 'package:playground_news/core/injection/injection.dart';
 import 'package:playground_news/core/routes/app_router.dart';
 import 'package:playground_news/core/utils/simple_bloc_observer.dart';
-import 'package:playground_news/pixel_news/application/nav_bar_cubit.dart';
+import 'package:playground_news/pixel_news/application/most_popular/most_popular_cubit.dart';
+import 'package:playground_news/pixel_news/application/nav_bar/nav_bar_cubit.dart';
+import 'package:playground_news/pixel_news/domain/home/i_home_repository.dart';
+import 'package:playground_news/pixel_news/infrastructure/home/repository/home_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +42,10 @@ class PlaygroundNews extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => NavBarCubit(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              MostPopularCubit(getIt<IHomeRepository>())..getMostPopular(),
         )
       ],
       child: ScreenUtilInit(
