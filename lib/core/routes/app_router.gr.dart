@@ -64,9 +64,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     MostPopularArticleRoute.name: (routeData) {
+      final args = routeData.argsAs<MostPopularArticleRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MostPopularArticlePage(),
+        child: MostPopularArticlePage(
+          key: args.key,
+          articles: args.articles,
+        ),
       );
     },
     PixelNewsMainRoute.name: (routeData) {
@@ -91,6 +95,22 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SimpleCalculatorPage(),
+      );
+    },
+    TopStoriesEachSectionRoute.name: (routeData) {
+      final args = routeData.argsAs<TopStoriesEachSectionRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: TopStoriesEachSectionPage(
+          key: args.key,
+          section: args.section,
+        ),
+      );
+    },
+    TopStoriesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TopStoriesPage(),
       );
     },
   };
@@ -210,16 +230,41 @@ class MainRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [MostPopularArticlePage]
-class MostPopularArticleRoute extends PageRouteInfo<void> {
-  const MostPopularArticleRoute({List<PageRouteInfo>? children})
-      : super(
+class MostPopularArticleRoute
+    extends PageRouteInfo<MostPopularArticleRouteArgs> {
+  MostPopularArticleRoute({
+    Key? key,
+    required List<ArticleModel> articles,
+    List<PageRouteInfo>? children,
+  }) : super(
           MostPopularArticleRoute.name,
+          args: MostPopularArticleRouteArgs(
+            key: key,
+            articles: articles,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'MostPopularArticleRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<MostPopularArticleRouteArgs> page =
+      PageInfo<MostPopularArticleRouteArgs>(name);
+}
+
+class MostPopularArticleRouteArgs {
+  const MostPopularArticleRouteArgs({
+    this.key,
+    required this.articles,
+  });
+
+  final Key? key;
+
+  final List<ArticleModel> articles;
+
+  @override
+  String toString() {
+    return 'MostPopularArticleRouteArgs{key: $key, articles: $articles}';
+  }
 }
 
 /// generated route for
@@ -274,6 +319,59 @@ class SimpleCalculatorRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SimpleCalculatorRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TopStoriesEachSectionPage]
+class TopStoriesEachSectionRoute
+    extends PageRouteInfo<TopStoriesEachSectionRouteArgs> {
+  TopStoriesEachSectionRoute({
+    Key? key,
+    required String section,
+    List<PageRouteInfo>? children,
+  }) : super(
+          TopStoriesEachSectionRoute.name,
+          args: TopStoriesEachSectionRouteArgs(
+            key: key,
+            section: section,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'TopStoriesEachSectionRoute';
+
+  static const PageInfo<TopStoriesEachSectionRouteArgs> page =
+      PageInfo<TopStoriesEachSectionRouteArgs>(name);
+}
+
+class TopStoriesEachSectionRouteArgs {
+  const TopStoriesEachSectionRouteArgs({
+    this.key,
+    required this.section,
+  });
+
+  final Key? key;
+
+  final String section;
+
+  @override
+  String toString() {
+    return 'TopStoriesEachSectionRouteArgs{key: $key, section: $section}';
+  }
+}
+
+/// generated route for
+/// [TopStoriesPage]
+class TopStoriesRoute extends PageRouteInfo<void> {
+  const TopStoriesRoute({List<PageRouteInfo>? children})
+      : super(
+          TopStoriesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TopStoriesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

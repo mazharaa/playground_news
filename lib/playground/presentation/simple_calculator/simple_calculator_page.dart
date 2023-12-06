@@ -6,7 +6,7 @@ import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
 import 'package:playground_news/playground/application/simple_calculator_cubit/simple_calculator_cubit.dart';
 import 'package:playground_news/playground/presentation/simple_calculator/widgets/input_number_field.dart';
-import 'package:playground_news/playground/presentation/simple_calculator/widgets/operation_button.dart';
+import 'package:playground_news/presentation/widget/choose_button.dart';
 
 @RoutePage()
 class SimpleCalculatorPage extends StatelessWidget {
@@ -72,8 +72,8 @@ class SimpleCalculatorPage extends StatelessWidget {
                       spacing: UiHelper.setSp(10),
                       runSpacing: UiHelper.setSp(7),
                       children: [
-                        OperationButton(
-                          operation: 'Add',
+                        ChooseButton(
+                          title: 'Add',
                           isChoosen: state
                               .choosenType(const SimpleCalculatorType.add()),
                           onPressed: () {
@@ -82,8 +82,8 @@ class SimpleCalculatorPage extends StatelessWidget {
                                 .chooseType(const SimpleCalculatorType.add());
                           },
                         ),
-                        OperationButton(
-                          operation: 'Substract',
+                        ChooseButton(
+                          title: 'Substract',
                           isChoosen: state.choosenType(
                               const SimpleCalculatorType.substract()),
                           onPressed: () {
@@ -91,8 +91,8 @@ class SimpleCalculatorPage extends StatelessWidget {
                                 const SimpleCalculatorType.substract());
                           },
                         ),
-                        OperationButton(
-                          operation: 'Multiply',
+                        ChooseButton(
+                          title: 'Multiply',
                           isChoosen: state.choosenType(
                               const SimpleCalculatorType.multiply()),
                           onPressed: () {
@@ -100,8 +100,8 @@ class SimpleCalculatorPage extends StatelessWidget {
                                 const SimpleCalculatorType.multiply());
                           },
                         ),
-                        OperationButton(
-                          operation: 'Divide',
+                        ChooseButton(
+                          title: 'Divide',
                           isChoosen: state
                               .choosenType(const SimpleCalculatorType.divide()),
                           onPressed: () {
@@ -109,8 +109,8 @@ class SimpleCalculatorPage extends StatelessWidget {
                                 const SimpleCalculatorType.divide());
                           },
                         ),
-                        OperationButton(
-                          operation: 'Power',
+                        ChooseButton(
+                          title: 'Power',
                           isChoosen: state
                               .choosenType(const SimpleCalculatorType.power()),
                           onPressed: () {

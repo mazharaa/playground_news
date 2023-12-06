@@ -3,15 +3,15 @@ import 'package:playground_news/core/commons/color_const.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
 
-class OperationButton extends StatelessWidget {
-  const OperationButton({
+class ChooseButton extends StatelessWidget {
+  const ChooseButton({
     super.key,
-    required this.operation,
+    required this.title,
     this.onPressed,
     required this.isChoosen,
   });
 
-  final String operation;
+  final String title;
   final VoidCallback? onPressed;
   final bool isChoosen;
 
@@ -27,7 +27,7 @@ class OperationButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       child: Text(
-        operation,
+        title,
         style: context.textTheme.bodyMedium,
       ),
     );

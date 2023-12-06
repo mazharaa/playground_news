@@ -14,7 +14,11 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:logger/logger.dart' as _i7;
 import 'package:playground_news/core/env/env.dart' as _i4;
 import 'package:playground_news/core/routes/app_router.dart' as _i3;
-import 'package:playground_news/core/utils/register_module.dart' as _i13;
+import 'package:playground_news/core/utils/register_module.dart' as _i15;
+import 'package:playground_news/pixel_news/application/most_popular/most_popular_cubit.dart'
+    as _i13;
+import 'package:playground_news/pixel_news/application/top_stories/top_stories_cubit.dart'
+    as _i14;
 import 'package:playground_news/pixel_news/domain/explore/i_explore_repository.dart'
     as _i5;
 import 'package:playground_news/pixel_news/domain/home/i_home_repository.dart'
@@ -50,8 +54,12 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i10.HomeDataSources(gh<_i9.ApiHelper>()));
     gh.lazySingleton<_i11.IHomeRepository>(
         () => _i12.HomeRepository(gh<_i10.HomeDataSources>()));
+    gh.factory<_i13.MostPopularCubit>(
+        () => _i13.MostPopularCubit(gh<_i11.IHomeRepository>()));
+    gh.factory<_i14.TopStoriesCubit>(
+        () => _i14.TopStoriesCubit(gh<_i11.IHomeRepository>()));
     return this;
   }
 }
 
-class _$RegisterModule extends _i13.RegisterModule {}
+class _$RegisterModule extends _i15.RegisterModule {}
