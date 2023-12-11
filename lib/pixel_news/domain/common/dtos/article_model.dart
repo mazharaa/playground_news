@@ -31,7 +31,7 @@ class ArticleModel with _$ArticleModel {
         id: json['id'].toString(),
         title: json['abstract'],
         byline: json['byline']['original'] ?? 'By Unknown',
-        multimedia: (json['media'] as List).isEmpty
+        multimedia: (json['multimedia'] as List).isEmpty
             ? []
             : [json['multimedia'][0]['url']],
         publishedDate: json['pub_date'],
