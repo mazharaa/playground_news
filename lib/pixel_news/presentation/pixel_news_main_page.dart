@@ -17,7 +17,6 @@ class PixelNewsMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('object');
     return BlocBuilder<NavBarCubit, NavBarState>(
       builder: (context, state) {
         return Scaffold(
