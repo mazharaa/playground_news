@@ -7,11 +7,15 @@ class NewsCard extends StatelessWidget {
   final String title;
   final String imgSrc;
   final String desc;
+  final bool isFavorite;
+  final GestureTapCallback? starOnTap;
   const NewsCard({
     super.key,
     required this.title,
     required this.desc,
     required this.imgSrc,
+    this.isFavorite = false,
+    this.starOnTap,
   });
 
   @override
@@ -33,7 +37,13 @@ class NewsCard extends StatelessWidget {
             Center(
               child: ClipRRect(
                 borderRadius: UiHelper.borderRadiusCircular(all: 7),
-                child: Image.network(imgSrc),
+                child: SizedBox(
+                    width: UiHelper.setWidth(90), // Set your desired width
+                    height: UiHelper.setHeight(76), // Set your desired height
+                    child: Image.network(
+                      imgSrc,
+                      fit: BoxFit.cover,
+                    )),
               ),
             ),
             UiHelper.horizontalSpace(15),
@@ -55,14 +65,22 @@ class NewsCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        desc,
-                        style: context.textTheme.labelMedium,
+                      Expanded(
+                        child: Text(
+                          desc,
+                          style: context.textTheme.labelMedium,
+                          softWrap: true,
+                          overflow: TextOverflow.visible,
+                          maxLines: 2,
+                        ),
                       ),
-                      const Icon(
-                        Icons.star_border,
-                        color: ColorConst.primary,
-                        size: 20,
+                      GestureDetector(
+                        onTap: starOnTap,
+                        child: Icon(
+                          isFavorite ? Icons.star : Icons.star_border,
+                          color: ColorConst.primary,
+                          size: 20,
+                        ),
                       )
                     ],
                   )

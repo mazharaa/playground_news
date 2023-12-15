@@ -5,6 +5,7 @@ import 'package:playground_news/application/main_app_cubit/main_app_cubit.dart';
 import 'package:playground_news/core/routes/app_router.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
+import 'package:playground_news/pixel_news/application/favorite/favorite_cubit.dart';
 import 'package:playground_news/presentation/commons/widgets/action_text.dart';
 import 'package:playground_news/presentation/widget/choose_app_widget.dart';
 
@@ -39,7 +40,9 @@ class SettingScreen extends StatelessWidget {
             ActionText(
               title: 'Clear Cache',
               subTitle: 'Reset all of your stats including your favorite',
-              onTap: () {},
+              onTap: () {
+                context.read<FavoriteCubit>().clearFavorites();
+              },
               needDivider: true,
             ),
             ActionText(

@@ -6,6 +6,7 @@ import 'package:playground_news/core/injection/injection.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
 import 'package:playground_news/pixel_news/application/explore/explore_cubit.dart';
+import 'package:playground_news/pixel_news/application/favorite/favorite_cubit.dart';
 import 'package:playground_news/pixel_news/presentation/widget/news_card.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -99,26 +100,44 @@ class SearchScreen extends StatelessWidget {
               state.failureOrSucceed.fold(
                 () => state.isLoading
                     ? Center(child: UiHelper.loading())
-                    : const SizedBox.shrink(),
+                    : Expanded(
+                        child: Center(
+                          child: Text(
+                            'Start searching!',
+                            style: context.textTheme.bodyMedium,
+                          ),
+                        ),
+                      ),
                 (response) => response.fold(
                   (failure) => failure.when(
                     fromServerSide: (value) => Text(value),
                   ),
-                  (response) => Expanded(
-                    child: ListView.builder(
-                      itemCount: response.length,
-                      itemBuilder: (context, index) {
-                        final data = response[index];
-                        return Padding(
-                          padding: UiHelper.padding(bottom: 10),
-                          child: NewsCard(
-                            title: data.title,
-                            desc: data.byline,
-                            imgSrc: data.multimediaConverted,
-                          ),
-                        );
-                      },
-                    ),
+                  (response) => BlocBuilder<FavoriteCubit, FavoriteState>(
+                    builder: (context, state) {
+                      return Expanded(
+                        child: ListView.builder(
+                          itemCount: response.length,
+                          itemBuilder: (context, index) {
+                            final data = response[index];
+                            return Padding(
+                              padding: UiHelper.padding(bottom: 10),
+                              child: NewsCard(
+                                title: data.title,
+                                desc:
+                                    '${data.byline}  \u2022  ${data.publishedDateConverted}',
+                                imgSrc: data.multimediaConverted,
+                                isFavorite: state.isFavorite(data),
+                                starOnTap: () {
+                                  context
+                                      .read<FavoriteCubit>()
+                                      .toggleFavorite(data);
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
                   ),
                 ),
               )

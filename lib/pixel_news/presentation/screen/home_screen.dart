@@ -8,6 +8,7 @@ import 'package:playground_news/core/injection/injection.dart';
 import 'package:playground_news/core/routes/app_router.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
+import 'package:playground_news/pixel_news/application/favorite/favorite_cubit.dart';
 import 'package:playground_news/pixel_news/application/most_popular/most_popular_cubit.dart';
 import 'package:playground_news/pixel_news/domain/common/dtos/article_model.dart';
 import 'package:playground_news/pixel_news/presentation/widget/news_card.dart';
@@ -110,10 +111,12 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: UiHelper.setHeight(15)),
-          BlocBuilder<MostPopularCubit, MostPopularState>(
-            builder: (context, state) {
-              return state.failureOrSucceed.fold(
-                () => state.isLoading
+          Builder(
+            builder: (context) {
+              final mostPopularState = context.watch<MostPopularCubit>().state;
+              final favoriteState = context.watch<FavoriteCubit>().state;
+              return mostPopularState.failureOrSucceed.fold(
+                () => mostPopularState.isLoading
                     ? Center(child: UiHelper.loading())
                     : const SizedBox.shrink(),
                 (response) => response.fold(
@@ -122,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   (response) => Expanded(
                     child: ListView.builder(
-                      itemCount: 3,
+                      itemCount: 5,
                       itemBuilder: (context, index) {
                         articles = response;
                         final data = response[index];
@@ -130,8 +133,15 @@ class HomeScreen extends StatelessWidget {
                           padding: UiHelper.padding(bottom: 10),
                           child: NewsCard(
                             title: data.title,
-                            desc: data.byline,
+                            desc:
+                                '${data.byline}  \u2022  ${data.publishedDateConverted}',
                             imgSrc: data.multimediaConverted,
+                            isFavorite: favoriteState.isFavorite(data),
+                            starOnTap: () {
+                              context
+                                  .read<FavoriteCubit>()
+                                  .toggleFavorite(data);
+                            },
                           ),
                         );
                       },
@@ -140,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               );
             },
-          )
+          ),
         ],
       ),
     );

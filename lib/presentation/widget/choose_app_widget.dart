@@ -6,6 +6,7 @@ import 'package:playground_news/application/main_app_cubit/main_app_cubit.dart';
 import 'package:playground_news/core/commons/assets_path.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
+import 'package:playground_news/pixel_news/application/nav_bar/nav_bar_cubit.dart';
 import 'package:playground_news/presentation/widget/choose_app_button.dart';
 
 class ChooseAppWidget extends StatelessWidget {
@@ -76,6 +77,7 @@ class ChooseAppWidget extends StatelessWidget {
           ChooseAppButton(
             onTap: () {
               context.read<MainAppCubit>().changeApp(const MainAppType.none());
+              context.read<NavBarCubit>().changeScreen(0);
             },
             child: Row(
               children: [

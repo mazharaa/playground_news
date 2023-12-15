@@ -14,12 +14,3 @@ class NavBarState with _$NavBarState {
     return index;
   }
 }
-
-@freezed
-class NavBarType with _$NavBarType {
-  const factory NavBarType.none() = _None;
-  const factory NavBarType.home() = _Home;
-  const factory NavBarType.search() = _Search;
-  const factory NavBarType.favorite() = _Favorite;
-  const factory NavBarType.setting() = _Setting;
-}

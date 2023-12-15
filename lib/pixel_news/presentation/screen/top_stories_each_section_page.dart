@@ -5,6 +5,7 @@ import 'package:playground_news/core/commons/color_const.dart';
 import 'package:playground_news/core/injection/injection.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 import 'package:playground_news/core/utils/ui_helper.dart';
+import 'package:playground_news/pixel_news/application/favorite/favorite_cubit.dart';
 import 'package:playground_news/pixel_news/application/top_stories/top_stories_cubit.dart';
 import 'package:playground_news/pixel_news/presentation/widget/news_card.dart';
 
@@ -56,10 +57,14 @@ class TopStoriesEachSectionPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: UiHelper.setHeight(10)),
-              BlocBuilder<TopStoriesCubit, TopStoriesState>(
-                builder: (context, state) {
-                  return state.failureOrSucceed.fold(
-                    () => state.isLoading
+              Builder(
+                builder: (context) {
+                  final topStoriesState =
+                      context.watch<TopStoriesCubit>().state;
+                  final favoriteState = context.watch<FavoriteCubit>().state;
+
+                  return topStoriesState.failureOrSucceed.fold(
+                    () => topStoriesState.isLoading
                         ? Center(child: UiHelper.loading())
                         : const SizedBox.shrink(),
                     (response) => response.fold(
@@ -75,8 +80,15 @@ class TopStoriesEachSectionPage extends StatelessWidget {
                               padding: UiHelper.padding(bottom: 10),
                               child: NewsCard(
                                 title: data.title,
-                                desc: data.byline,
+                                desc:
+                                    '${data.byline}  \u2022  ${data.publishedDateConverted}',
                                 imgSrc: data.multimediaConverted,
+                                isFavorite: favoriteState.isFavorite(data),
+                                starOnTap: () {
+                                  context
+                                      .read<FavoriteCubit>()
+                                      .toggleFavorite(data);
+                                },
                               ),
                             );
                           },
@@ -85,7 +97,7 @@ class TopStoriesEachSectionPage extends StatelessWidget {
                     ),
                   );
                 },
-              )
+              ),
             ],
           ),
         ),

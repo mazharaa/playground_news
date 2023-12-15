@@ -17,17 +17,16 @@ class PixelNewsMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = 0;
+    print('object');
     return BlocBuilder<NavBarCubit, NavBarState>(
       builder: (context, state) {
         return Scaffold(
           bottomNavigationBar: BottomNavigationBar(
-            currentIndex: currentIndex,
+            currentIndex: state.selectedIndex,
             showSelectedLabels: false,
             showUnselectedLabels: false,
             onTap: (int index) {
               context.read<NavBarCubit>().changeScreen(index);
-              currentIndex = state.selectedScreen(index);
             },
             items: [
               BottomNavigationBarItem(
@@ -80,7 +79,7 @@ class PixelNewsMainPage extends StatelessWidget {
             child: Padding(
               padding: UiHelper.padding(horizontal: 15),
               child: IndexedStack(
-                index: currentIndex,
+                index: state.selectedIndex,
                 children: const [
                   HomeScreen(),
                   SearchScreen(),
