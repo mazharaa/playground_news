@@ -17,7 +17,7 @@ class FavoriteCubit extends HydratedCubit<FavoriteState> {
       favList.add(article);
     }
 
-    emit(FavoriteState(favoritedNews: favList));
+    emit(state.copyWith(favoritedNews: favList));
   }
 
   void clearFavorites() {

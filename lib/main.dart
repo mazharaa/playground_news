@@ -54,6 +54,7 @@ class PlaygroundNews extends StatelessWidget {
             darkTheme: AppTheme.theme,
             routerDelegate: AutoRouterDelegate(router),
             routeInformationParser: router.defaultRouteParser(),
+            debugShowCheckedModeBanner: false,
           );
         },
       ),
