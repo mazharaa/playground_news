@@ -31,7 +31,7 @@ class InputValidationCubit extends Cubit<InputValidationState> {
 
   void submit() {
     if (state.model.failureOption.isNone()) {
-      emit(state.copyWith(changeStates: true));
+      emit(state.unmodified.copyWith(changeStates: true));
     } else {
       emit(state.unmodified.copyWith(showError: true));
     }

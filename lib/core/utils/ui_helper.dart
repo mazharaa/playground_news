@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:playground_news/core/commons/color_const.dart';
 import 'package:playground_news/core/utils/text_theme_extension.dart';
 
@@ -153,66 +152,66 @@ class UiHelper {
 
   static double defaultPadding = 28.0;
 
-  static void showToast(String message, {bool isSuccess = false}) {
-    Fluttertoast.showToast(
-        msg: message,
-        toastLength: isSuccess ? Toast.LENGTH_SHORT : Toast.LENGTH_LONG,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 1,
-        backgroundColor: isSuccess ? Colors.green : Colors.red,
-        textColor: Colors.white,
-        fontSize: UiHelper.setFont(14));
-  }
-}
+//   static void showToast(String message, {bool isSuccess = false}) {
+//     Fluttertoast.showToast(
+//         msg: message,
+//         toastLength: isSuccess ? Toast.LENGTH_SHORT : Toast.LENGTH_LONG,
+//         gravity: ToastGravity.BOTTOM,
+//         timeInSecForIosWeb: 1,
+//         backgroundColor: isSuccess ? Colors.green : Colors.red,
+//         textColor: Colors.white,
+//         fontSize: UiHelper.setFont(14));
+//   }
+// }
 
-class EmptyTemplate extends StatelessWidget {
-  final bool isInitialState;
-  final String emptyText;
-  const EmptyTemplate({
-    Key? key,
-    this.isInitialState = false,
-    required this.emptyText,
-  }) : super(key: key);
+// class EmptyTemplate extends StatelessWidget {
+//   final bool isInitialState;
+//   final String emptyText;
+//   const EmptyTemplate({
+//     Key? key,
+//     this.isInitialState = false,
+//     required this.emptyText,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return isInitialState
-        ? Align(
-            alignment: Alignment.center,
-            child: Container(
-              padding: UiHelper.padding(vertical: 500, horizontal: 200),
-              child: Column(
-                children: [
-                  Icon(
-                    Icons.screen_search_desktop_outlined,
-                    color: ColorConst.primary,
-                    size: UiHelper.setFont(200),
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          emptyText,
-                          textAlign: TextAlign.center,
-                          style: context.textTheme.bodyMedium!.copyWith(),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          )
-        : Align(
-            alignment: Alignment.center,
-            child: Container(
-              padding: UiHelper.padding(vertical: 40),
-              child: Text(
-                emptyText,
-                textAlign: TextAlign.center,
-                style: context.textTheme.bodySmall!.copyWith(),
-              ),
-            ),
-          );
-  }
+//   @override
+//   Widget build(BuildContext context) {
+//     return isInitialState
+//         ? Align(
+//             alignment: Alignment.center,
+//             child: Container(
+//               padding: UiHelper.padding(vertical: 500, horizontal: 200),
+//               child: Column(
+//                 children: [
+//                   Icon(
+//                     Icons.screen_search_desktop_outlined,
+//                     color: ColorConst.primary,
+//                     size: UiHelper.setFont(200),
+//                   ),
+//                   Row(
+//                     children: [
+//                       Expanded(
+//                         child: Text(
+//                           emptyText,
+//                           textAlign: TextAlign.center,
+//                           style: context.textTheme.bodyMedium!.copyWith(),
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           )
+//         : Align(
+//             alignment: Alignment.center,
+//             child: Container(
+//               padding: UiHelper.padding(vertical: 40),
+//               child: Text(
+//                 emptyText,
+//                 textAlign: TextAlign.center,
+//                 style: context.textTheme.bodySmall!.copyWith(),
+//               ),
+//             ),
+//           );
+//   }
 }

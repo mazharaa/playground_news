@@ -34,22 +34,22 @@ class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
-          if (states.contains(MaterialState.disabled)) {
+        foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+          if (states.contains(WidgetState.disabled)) {
             return ColorConst.primary; // Disabled color
           }
           return ColorConst.primary; // Regular color
         }),
-        backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
-          if (states.contains(MaterialState.disabled)) {
+        backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+          if (states.contains(WidgetState.disabled)) {
             return ColorConst.grey; // Disabled color
           }
           return ColorConst.lightBlue; // Regular color
         }),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
             UiHelper.padding(vertical: 12, horizontal: 50)),
-        elevation: MaterialStateProperty.all<double>(0),
-        shape: MaterialStateProperty.all<OutlinedBorder>(
+        elevation: WidgetStateProperty.all<double>(0),
+        shape: WidgetStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(UiHelper.setSp(10)),
           ),
@@ -58,13 +58,13 @@ class AppTheme {
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
-          if (states.contains(MaterialState.disabled)) {
+        foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+          if (states.contains(WidgetState.disabled)) {
             return ColorConst.lightGrey; // Disabled color
           }
           return ColorConst.primary; // Regular color
         }),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
+        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
       ),
     ),
     dividerTheme: DividerThemeData(
