@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:playground_news/core/commons/constants.dart';
+import 'package:playground_news/core/commons/api_key.dart';
 import 'package:playground_news/pixel_news/infrastructure/common/dtos/api_response_model.dart';
 import 'package:playground_news/pixel_news/infrastructure/core/api_configuration.dart';
 import 'package:playground_news/pixel_news/infrastructure/core/exception.dart';
@@ -18,7 +18,7 @@ class ApiHelper {
     Options? options,
   }) async {
     try {
-      Map<String, dynamic> _queryParameters = {"api-key": Constants.apiKey};
+      Map<String, dynamic> _queryParameters = {"api-key": ApiKey.key};
 
       if (queryParameters != null) {
         _queryParameters.addAll(queryParameters);
